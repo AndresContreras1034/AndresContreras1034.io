@@ -23,7 +23,7 @@ const Navbar = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
         >
-Pagina En Construccion. hasta que me de por subir todo
+Pagina En Desarrollo 30%
         </motion.div>
 
         {/* Menú de escritorio */}
