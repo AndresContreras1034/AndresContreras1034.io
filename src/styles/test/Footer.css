@@ -1,0 +1,106 @@
+/* ========================
+   Footer.css - Ultra Boosted Oscuro
+======================== */
+
+/* Fondo y texto */
+footer {
+  background-color: #2e2e2e;
+  color: #ffffff;
+  padding: 2rem 1rem;
+  margin-top: 6rem;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  border-top: 1px solid #444;
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s ease;
+  animation: fadeInFooter 1s ease-out forwards;
+  opacity: 0;
+}
+
+/* Enlaces */
+footer a {
+  color: #ffffff;
+  transition: color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+}
+
+footer a::after {
+  content: '';
+  display: block;
+  width: 0%;
+  height: 2px;
+  background-color: #3b82f6;
+  transition: width 0.3s ease;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+}
+
+footer a:hover {
+  color: #3b82f6;
+  transform: scale(1.05);
+}
+
+footer a:hover::after {
+  width: 100%;
+}
+
+/* Contenedor interno */
+footer .max-w-7xl {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  animation: fadeInLinks 1.2s ease-out forwards;
+  opacity: 0;
+}
+
+/* Grupo de enlaces */
+footer .flex {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+/* Animaciones */
+@keyframes fadeInFooter {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLinks {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  footer {
+    padding: 2rem 1rem;
+  }
+
+  footer a {
+    font-size: 0.95rem;
+  }
+
+  footer .flex {
+    gap: 0.75rem;
+  }
+}
