@@ -9,25 +9,15 @@ section#skills {
   padding: 5rem 1.5rem;
   animation: fadeInSection 1.2s ease-out forwards;
   opacity: 0;
+  text-align: center;
+  overflow: visible;
 }
 
-/* Contenedor interno centrado */
-section#skills > div {
-  max-width: 1120px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 2rem;
-  animation: fadeInGrid 1.5s ease-out forwards;
-  opacity: 0;
-}
-
-/* Título */
+/* Título principal */
 section#skills h2 {
   font-size: 2.5rem;
   font-weight: 800;
   margin-bottom: 3rem;
-  text-align: center;
   color: #ffffff;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -36,7 +26,6 @@ section#skills h2 {
   position: relative;
 }
 
-/* Línea decorativa debajo del título */
 section#skills h2::after {
   content: '';
   display: block;
@@ -47,50 +36,135 @@ section#skills h2::after {
   border-radius: 2px;
 }
 
-/* Tarjeta de skill */
+/* Subtítulos de categorías */
+section#skills h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 2rem;
+  animation: fadeInTitle 1s ease-out forwards;
+  opacity: 0;
+  position: relative;
+}
+
+section#skills h3::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #ffffff;
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+
+/* Contenedor de tarjetas */
 section#skills > div > div {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 2rem;
+  animation: fadeInGrid 1.5s ease-out forwards;
+  opacity: 0;
+  overflow: visible;
+  position: relative;
+}
+
+/* Tarjeta de skill cuadrada */
+.skill-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, max-height 0.4s ease, padding 0.4s ease;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   padding: 1.2rem;
   background: radial-gradient(circle at top left, #444, #222);
   border-radius: 1rem;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-  transition: all 0.4s ease;
-  animation: fadeInCard 0.8s ease-out forwards;
-  opacity: 0;
-  transform: translateY(20px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  transform-origin: center center;
+  aspect-ratio: 1 / 1;
+  cursor: pointer;
 }
 
-section#skills > div > div:hover {
-  box-shadow: 0 12px 24px rgba(0,0,0,0.4);
-  transform: translateY(-8px) scale(1.05);
+/* Hover boosteado sin romper el layout */
+.skill-card:hover {
+  transform: scale(1.5);
+  z-index: 50;
+  box-shadow: 0 0 60px rgba(99, 102, 241, 0.6);
 }
 
-/* Iconos */
-section#skills div div img {
+/* Estado activo al hacer clic */
+.skill-card.active {
+  transform: scale(1.8);
+  z-index: 100;
+  max-height: 500px;
+  padding: 2rem;
+  box-shadow: 0 0 80px rgba(99, 102, 241, 0.8);
+}
+
+/* Icono */
+.skill-card img {
   width: 3.5rem;
   height: 3.5rem;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
   filter: drop-shadow(0 0 5px #fff5);
   transition: transform 0.3s ease;
 }
 
-section#skills div div:hover img {
-  transform: rotate(10deg) scale(1.1);
+.skill-card:hover img,
+.skill-card.active img {
+  transform: scale(1.1);
 }
 
-/* Nombre de la skill */
-section#skills div div p {
+/* Nombre */
+.skill-card p {
   color: #e0e0e0;
   font-weight: 600;
   text-align: center;
-  margin: 0;
+  margin: 0.25rem 0;
   font-size: 1rem;
   letter-spacing: 0.5px;
 }
 
+/* Tooltip */
+.skill-card .tooltip {
+  display: none;
+  margin-top: 0.75rem;
+  color: #ccc;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  padding: 0.5rem 1rem;
+  background-color: rgba(30, 30, 30, 0.95);
+  border-radius: 0.5rem;
+  max-width: 220px;
+  text-align: center;
+  animation: fadeInTooltip 0.3s ease forwards;
+}
+
+.skill-card:hover .tooltip,
+.skill-card.active .tooltip {
+  display: block;
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 100%;
+}
+
 /* Animaciones */
+@keyframes fadeInTooltip {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes fadeInSection {
   0% {
     opacity: 0;
