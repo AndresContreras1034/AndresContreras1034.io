@@ -1,0 +1,182 @@
+/* ========================
+   Hero.css - Refined with Light Palette + Persistent Typewriter
+======================== */
+
+/* Sección principal */
+#hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 2rem;
+  background: linear-gradient(135deg, #f9fafb, #e5e7eb);
+  color: #111827;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  animation: fadeIn 1s ease-out forwards;
+  opacity: 0;
+}
+
+/* Fondo animado */
+#hero::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  left: -40%;
+  width: 180%;
+  height: 180%;
+  background: radial-gradient(circle at center, rgba(99, 102, 241, 0.08), transparent 70%);
+  animation: rotateBg 30s linear infinite;
+  z-index: 0;
+}
+
+/* Título principal con animación tipo máquina de escribir */
+#hero h1 {
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  z-index: 1;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #111827;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.05);
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #3b82f6;
+  animation: typing 3s steps(30, end), blink 0.75s step-end infinite;
+}
+
+/* Subtítulo / descripción */
+#hero p {
+  font-size: 1.25rem;
+  color: #374151;
+  margin: 0;
+  max-width: 700px;
+  z-index: 1;
+  animation: slideUp 1.2s ease-out forwards;
+  opacity: 0;
+  line-height: 1.8;
+}
+
+/* Botón CTA */
+#hero .cta-button {
+  margin-top: 2rem;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(to right, #3b82f6, #6366f1);
+  border: none;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1;
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.3);
+}
+
+#hero .cta-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes rotateBg {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Máquina de escribir */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  0%, 100% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #3b82f6;
+  }
+}
+
+/* Modo oscuro automático */
+@media (prefers-color-scheme: dark) {
+  #hero {
+    background: linear-gradient(135deg, #111827, #1f2937);
+    color: #f9fafb;
+  }
+
+  #hero p {
+    color: #d1d5db;
+  }
+
+  #hero .cta-button {
+    background: linear-gradient(to right, #60a5fa, #818cf8);
+    color: #ffffff;
+  }
+
+  #hero .cta-button:hover {
+    box-shadow: 0 10px 30px rgba(129, 140, 248, 0.4);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #hero h1 {
+    font-size: 2.5rem;
+  }
+
+  #hero p {
+    font-size: 1.1rem;
+  }
+
+  #hero .cta-button {
+    font-size: 0.95rem;
+    padding: 0.65rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #hero h1 {
+    font-size: 2rem;
+  }
+
+  #hero p {
+    font-size: 1rem;
+  }
+
+  #hero .cta-button {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.25rem;
+  }
+}
