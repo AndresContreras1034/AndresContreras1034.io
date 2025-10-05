@@ -6,22 +6,38 @@ import '../styles/Projects.css';
 const Projects = () => {
   return (
     <section id="projects">
+      {/* Título animado */}
       <motion.h2
-        initial={{ opacity: 0, y: -20 }}
+        initial={{ opacity: 0, y: -30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
       >
         Proyectos
       </motion.h2>
 
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
-        {projectsData.map((project) => (
+      {/* Grid de proyectos */}
+      <div className="projects-grid">
+        {projectsData.map((project, index) => (
           <motion.div
             key={project.name}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
             className="project-card"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            whileHover={{
+              scale: 1.4,
+              y: [0, -10, 0], // rebote
+              transition: {
+                duration: 0.6,
+                ease: "easeOut"
+              }
+            }}
+            transition={{
+              duration: 0.6,
+              delay: index * 0.2,
+              ease: "easeOut"
+            }}
+            viewport={{ once: true }}
           >
             <img
               src={project.image}
