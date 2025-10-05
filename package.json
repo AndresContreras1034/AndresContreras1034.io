@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://AndresContreras1034.github.io",
+"homepage": "https://AndresContreras1034.github.io/AndresContreras1034.io"
   "scripts": {
     "dev": "vite",
     "build": "vite build",
