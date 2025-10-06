@@ -1,0 +1,210 @@
+/* ========================
+   Skills.css - Estilo profesional con fondo oscuro y animaciones mejoradas
+======================== */
+
+/* Sección general */
+section#skills {
+  width: 100%;
+  background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
+  padding: 5rem 1.5rem;
+  animation: fadeInSection 1.2s ease-out forwards;
+  opacity: 0;
+  text-align: center;
+  overflow: visible;
+}
+
+/* Título principal */
+section#skills h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 3rem;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: fadeInTitle 1s ease-out forwards;
+  opacity: 0;
+  position: relative;
+}
+
+section#skills h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(to right, #3b82f6, #6366f1);
+  margin: 0.75rem auto 0;
+  border-radius: 2px;
+}
+
+/* Subtítulos de categorías */
+section#skills h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 2rem;
+  animation: fadeInTitle 1s ease-out forwards;
+  opacity: 0;
+  position: relative;
+}
+
+section#skills h3::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #ffffff;
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+
+/* Contenedor de tarjetas */
+section#skills > div > div {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 2rem;
+  animation: fadeInGrid 1.5s ease-out forwards;
+  opacity: 0;
+  overflow: visible;
+  position: relative;
+}
+
+/* Tarjeta de skill cuadrada */
+.skill-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, max-height 0.4s ease, padding 0.4s ease;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem;
+  background: radial-gradient(circle at top left, #444, #222);
+  border-radius: 1rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  transform-origin: center center;
+  aspect-ratio: 1 / 1;
+  cursor: pointer;
+}
+
+/* Hover boosteado sin romper el layout */
+.skill-card:hover {
+  transform: scale(1.5);
+  z-index: 50;
+  box-shadow: 0 0 60px rgba(99, 102, 241, 0.6);
+}
+
+/* Estado activo al hacer clic */
+.skill-card.active {
+  transform: scale(1.8);
+  z-index: 100;
+  max-height: 500px;
+  padding: 2rem;
+  box-shadow: 0 0 80px rgba(99, 102, 241, 0.8);
+}
+
+/* Icono */
+.skill-card img {
+  width: 3.5rem;
+  height: 3.5rem;
+  margin-bottom: 0.5rem;
+  filter: drop-shadow(0 0 5px #fff5);
+  transition: transform 0.3s ease;
+}
+
+.skill-card:hover img,
+.skill-card.active img {
+  transform: scale(1.1);
+}
+
+/* Nombre */
+.skill-card p {
+  color: #e0e0e0;
+  font-weight: 600;
+  text-align: center;
+  margin: 0.25rem 0;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+/* Tooltip */
+.skill-card .tooltip {
+  display: none;
+  margin-top: 0.75rem;
+  color: #ccc;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  padding: 0.5rem 1rem;
+  background-color: rgba(30, 30, 30, 0.95);
+  border-radius: 0.5rem;
+  max-width: 220px;
+  text-align: center;
+  animation: fadeInTooltip 0.3s ease forwards;
+}
+
+.skill-card:hover .tooltip,
+.skill-card.active .tooltip {
+  display: block;
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 100%;
+}
+
+/* Animaciones */
+@keyframes fadeInTooltip {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInSection {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInTitle {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes fadeInGrid {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInCard {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
