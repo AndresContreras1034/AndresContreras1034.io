@@ -154,6 +154,38 @@
   #about img {
     border-color: #2c2c2c;
   }
+/* Imagen secundaria Pzlita (icono al lado del título) */
+#about .pzlita {
+  width: 80px; /* tamaño grande inicial */
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid #ffffff;
+  animation: fadeInImage 1.5s ease-out forwards;
+  opacity: 0;
+  position: absolute; /* mantiene superposición al título */
+  top: 0;
+  right: -8px; /* separada del final de la E */
+}
+
+#about .pzlita:hover {
+  transform: scale(1.2) rotate(2deg);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* Responsive para Pzlita */
+@media (min-width: 768px) {
+  #about .pzlita {
+    width: 100px; /* tamaño mayor en pantallas grandes */
+    height: 100px;
+  }
+}
+
+
+
+
 }
 
 /* Responsive */
@@ -178,4 +210,5 @@
     font-size: 1.35rem;
     text-align: center;
   }
+
 }
