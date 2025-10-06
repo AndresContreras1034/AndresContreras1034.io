@@ -1,3 +1,4 @@
+// Hero.jsx
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import KirbyStatic from "./Game/KirbyStatic";
@@ -8,10 +9,13 @@ const Hero = () => {
   const [showGame, setShowGame] = useState(false);
 
   return (
-    <section id="hero" className="relative h-screen flex flex-col justify-center items-center px-6 text-center">
+    <section
+      id="hero"
+      className="relative h-screen flex flex-col justify-center items-center px-6 text-center"
+    >
       {/* Kirby Game en capa superior */}
       {showGame && (
-        <div className="absolute inset-0 z-20 pointer-events-none">
+        <div className="absolute inset-0 z-20">
           <KirbyGame onClose={() => setShowGame(false)} />
         </div>
       )}
@@ -32,7 +36,7 @@ const Hero = () => {
         transition={{ duration: 1, delay: 0.5 }}
         className="text-xl md:text-2xl text-gray-200 max-w-2xl z-10"
       >
-        Backend Developer &amp; Data Analyst (Juego todavia mal=) Se inicia con y se salta con x. 
+        Backend Developer & Data Analyst. Juego Kirby: inicia con "Y", salta con "X".
       </motion.p>
 
       {/* Kirby estático si el juego no está activo */}

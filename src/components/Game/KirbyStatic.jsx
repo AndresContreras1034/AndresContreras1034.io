@@ -1,8 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import "../../styles/Game.css";
 
-// Sprite estático de Kirby
-import kirby_idle from "/assets/kirby/kirby_idle.png";
+const kirby_idle = "/assets/kirby/kirby_idle.png"; // ruta desde public
 
 const KirbyStatic = () => {
   const canvasRef = useRef(null);
@@ -11,8 +10,8 @@ const KirbyStatic = () => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
 
-    canvas.width = 128; // ancho del sprite
-    canvas.height = 128; // alto del sprite
+    canvas.width = 128;
+    canvas.height = 128;
 
     const img = new Image();
     img.src = kirby_idle;
@@ -30,5 +29,6 @@ const KirbyStatic = () => {
     />
   );
 };
-
 export default KirbyStatic;
+
+
