@@ -5,19 +5,20 @@ const useGameState = () => {
   const kirbyX = 100;
   const gravity = 0.6;
   const jumpStrength = 12;
-  const groundY = 0; // suelo en 0, yPos crece hacia arriba
+  const groundY = 0;
 
-  // Hooks al nivel superior
+  // Refs
   const gameStateRef = useRef("start");
-  const yPosRef = useRef(0); // Kirby inicia en el suelo (altura 0)
+  const yPosRef = useRef(0);
   const velocityRef = useRef(0);
   const runFrameRef = useRef(0);
   const lastTimeRef = useRef(0);
   const animationFrameRef = useRef(null);
+  const jumpCountRef = useRef(0); // contador de saltos
 
+  // States
   const [score, setScore] = useState(0);
   const [gameState, setGameState] = useState("start");
-  const [isJumping, setIsJumping] = useState(false);
   const [deltaTime, setDeltaTime] = useState(0);
 
   // Caja de colisión de Kirby
@@ -46,21 +47,20 @@ const useGameState = () => {
     runFrameRef.current = 0;
     lastTimeRef.current = 0;
     setScore(0);
-    setIsJumping(false);
+    jumpCountRef.current = 0;
   };
-  // Marcar Game Over (cuando Kirby toca un enemigo)
-const setGameOver = () => {
-  gameStateRef.current = "gameover";
-  setGameState("gameover");
-  setIsJumping(false); // por si muere en el aire
-};
 
+  // Marcar Game Over
+  const setGameOver = () => {
+    gameStateRef.current = "gameover";
+    setGameState("gameover");
+  };
 
-  // Saltar
+  // Saltar (máximo 2 saltos)
   const jump = () => {
-    if (gameStateRef.current === "playing" && !isJumping) {
-      setIsJumping(true);
-      velocityRef.current = jumpStrength; // positivo para subir
+    if (gameStateRef.current === "playing" && jumpCountRef.current < 2) {
+      velocityRef.current = jumpStrength;
+      jumpCountRef.current += 1;
     }
   };
 
@@ -91,14 +91,14 @@ const setGameOver = () => {
       setDeltaTime(dt);
 
       // Física de Kirby
-      if (isJumping) {
-        velocityRef.current -= gravity; // gravedad reduce velocidad
-        yPosRef.current += velocityRef.current; // subir
-        if (yPosRef.current <= groundY) {
-          yPosRef.current = groundY;
-          velocityRef.current = 0;
-          setIsJumping(false);
-        }
+      yPosRef.current += velocityRef.current;
+
+      if (yPosRef.current > groundY || velocityRef.current > 0) {
+        velocityRef.current -= gravity; // gravedad solo si está en el aire o subiendo
+      } else {
+        yPosRef.current = groundY;
+        velocityRef.current = 0;
+        jumpCountRef.current = 0; // reinicia saltos al tocar suelo
       }
 
       // Puntaje
@@ -114,7 +114,7 @@ const setGameOver = () => {
     return () => {
       cancelAnimationFrame(animationFrameRef.current);
     };
-  }, [isJumping]);
+  }, []);
 
   return {
     gameState,
@@ -123,7 +123,6 @@ const setGameOver = () => {
     startGame,
     resetGame,
     setGameOver,
-    isJumping,
     jump,
     yPos: yPosRef.current,
     velocity: velocityRef.current,
