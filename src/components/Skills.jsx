@@ -3,7 +3,11 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import "../styles/Skills.css";
 
+<<<<<<< HEAD
 // Import icons
+=======
+// Import icons from src/assets
+>>>>>>> 446c5d0336885d5ae9287c78893985c29674a2a8
 import pythonIcon from "../assets/python.png";
 import javaIcon from "../assets/java.png";
 import jsIcon from "../assets/javascript.png";
@@ -12,20 +16,37 @@ import cIcon from "../assets/c.png";
 import matlabIcon from "../assets/matlab.png";
 import htmlIcon from "../assets/html.png";
 import cssIcon from "../assets/css.png";
+<<<<<<< HEAD
 import reactIcon from "../assets/react.png";
 import springIcon from "../assets/springboot.png";
 import tailwindIcon from "../assets/tailwind.png";
+=======
+
+import reactIcon from "../assets/react.png";
+import springIcon from "../assets/springboot.png";
+import tailwindIcon from "../assets/tailwind.png";
+
+>>>>>>> 446c5d0336885d5ae9287c78893985c29674a2a8
 import gitIcon from "../assets/git.png";
 import powerbiIcon from "../assets/powerbi.png";
 import arduinoIcon from "../assets/arduino.png";
 import blenderIcon from "../assets/blender.png";
 import unrealIcon from "../assets/unreal.png";
+<<<<<<< HEAD
+=======
+
+>>>>>>> 446c5d0336885d5ae9287c78893985c29674a2a8
 import sqlIcon from "../assets/sql.png";
 import mysqlIcon from "../assets/mysql.png";
 import sqliteIcon from "../assets/sqlite.png";
 import mongoIcon from "../assets/mongodb.png";
 
+<<<<<<< HEAD
 const categories = [
+=======
+// Skill categories
+const skillsCategories = [
+>>>>>>> 446c5d0336885d5ae9287c78893985c29674a2a8
   {
     title: "Programming Languages",
     skills: [
@@ -86,7 +107,11 @@ const Skills = () => {
         Skills
       </motion.h2>
 
+<<<<<<< HEAD
       {categories.map((category) => (
+=======
+      {skillsCategories.map((category) => (
+>>>>>>> 446c5d0336885d5ae9287c78893985c29674a2a8
         <div key={category.title} className="mb-12">
           <motion.h3
             initial={{ opacity: 0, y: -10 }}
@@ -96,15 +121,25 @@ const Skills = () => {
           >
             {category.title}
           </motion.h3>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 446c5d0336885d5ae9287c78893985c29674a2a8
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 justify-center">
             {category.skills.map((skill) => (
               <motion.div
                 key={skill.name}
                 onClick={() => handleCardClick(skill.name)}
+<<<<<<< HEAD
                 className={`skill-card ${activeSkill === skill.name ? "active" : ""}`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+=======
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+                className={`skill-card ${activeSkill === skill.name ? "active" : ""}`}
+>>>>>>> 446c5d0336885d5ae9287c78893985c29674a2a8
               >
                 <img src={skill.icon} alt={skill.name} className="w-12 h-12 mb-2" />
                 <p className="text-gray-200 font-medium">{skill.name}</p>
