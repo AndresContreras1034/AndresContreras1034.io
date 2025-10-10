@@ -1,0 +1,155 @@
+/* ========================
+   Skills.css - Estilo profesional con fondo oscuro y animaciones mejoradas
+======================== */
+
+/* Sección general */
+section#skills {
+  width: 100%;
+  background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
+  padding: 5rem 1.5rem;
+  animation: fadeInSection 1.2s ease-out forwards;
+  opacity: 0;
+  text-align: center;
+}
+
+/* Título principal */
+section#skills h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 3rem;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: fadeInTitle 1s ease-out forwards;
+  opacity: 0;
+  position: relative;
+}
+
+/* Línea decorativa debajo del título */
+section#skills h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(to right, #3b82f6, #6366f1);
+  margin: 0.75rem auto 0;
+  border-radius: 2px;
+}
+
+/* Subtítulos de categorías */
+section#skills h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 2rem;
+  animation: fadeInTitle 1s ease-out forwards;
+  opacity: 0;
+}
+
+/* Contenedor de tarjetas */
+section#skills > div > div {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 2rem;
+  animation: fadeInGrid 1.5s ease-out forwards;
+  opacity: 0;
+}
+
+/* Tarjeta de skill */
+section#skills > div > div > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem;
+  background: radial-gradient(circle at top left, #444, #222);
+  border-radius: 1rem;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+  animation: fadeInCard 0.8s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+  cursor: pointer;
+}
+
+/* Hover y click */
+section#skills > div > div > div:hover {
+  box-shadow: 0 12px 24px rgba(0,0,0,0.4);
+  transform: translateY(-8px) scale(1.05);
+}
+
+section#skills > div > div > div:active {
+  transform: scale(1.15);
+  transition: transform 0.2s ease;
+}
+
+/* Iconos */
+section#skills div div img {
+  width: 3.5rem;
+  height: 3.5rem;
+  margin-bottom: 0.75rem;
+  filter: drop-shadow(0 0 5px #fff5);
+  transition: transform 0.3s ease;
+}
+
+section#skills div div:hover img {
+  transform: rotate(10deg) scale(1.1);
+}
+
+/* Nombre de la skill */
+section#skills div div p {
+  color: #e0e0e0;
+  font-weight: 600;
+  text-align: center;
+  margin: 0;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+/* Animaciones */
+@keyframes fadeInSection {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInTitle {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes fadeInGrid {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInCard {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

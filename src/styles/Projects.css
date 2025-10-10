@@ -1,0 +1,393 @@
+/* ========================
+   Projects.css - Animaciones boosteadas
+======================== */
+
+/* Variables */
+:root {
+  --bg-dark: #1f1f1f;
+  --card-bg: #2b2b2b;
+  --accent: #3b82f6;
+  --accent2: #6366f1;
+  --text-light: #ffffff;
+  --text-muted: #d1d5db;
+  --shadow: rgba(0, 0, 0, 0.5);
+  --transition-fast: 0.3s ease;
+  --transition-slow: 0.6s ease;
+  --radius: 0.75rem;
+}
+
+/* Sección general */
+section#projects {
+  width: 100%;
+  padding: 5rem 1.5rem;
+  background-color: var(--bg-dark);
+  box-shadow: 0 12px 30px var(--shadow);
+  transition: background 0.3s ease;
+  overflow-x: hidden;
+}
+
+/* Título */
+section#projects h2 {
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: var(--text-light);
+  margin-bottom: 2.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+section#projects h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(to right, var(--accent), var(--accent2));
+  margin: 0.75rem auto 0;
+  border-radius: 2px;
+}
+
+/* Grid de proyectos */
+.projects-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  padding-bottom: 4rem;
+}
+
+/* Tarjeta de proyecto */
+.project-card {
+  background-color: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: 0 6px 12px var(--shadow);
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+/* Hover boosteado */
+.project-card:hover {
+  transform: scale(1.4);
+  z-index: 10;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.5s ease;
+}
+
+/* Imagen */
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform var(--transition-fast);
+}
+
+.project-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Contenido de la tarjeta */
+.project-card .content {
+  padding: 1.25rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: opacity 0.3s ease;
+}
+
+.project-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--text-light);
+}
+
+.project-card p {
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+/* Link */
+.project-card a {
+  color: var(--text-light);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.project-card a:hover {
+  color: var(--accent);
+  transform: translateX(4px);
+  text-decoration: underline;
+}
+
+/* Category Titles */
+.category-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-light); /* título en blanco */
+  margin: 2rem 0 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: center;
+  position: relative;
+}
+
+/* Línea decorativa azul debajo del título de categoría */
+.category-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: var(--accent); /* azul uniforme */
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+
+/* Sección de cada categoría */
+.category-section {
+  margin-bottom: 4rem;
+  position: relative;
+  background: none; /* sin alternancia de color */
+  padding: 0;
+}
+
+/* Tarjeta de proyecto - hover */
+.project-card:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+  filter: brightness(1.1) contrast(1.2);
+  animation: glow 1.5s infinite;
+}
+
+/* Imagen de la tarjeta */
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 2px solid var(--accent); /* línea azul */
+}
+
+/* Contenido de la tarjeta */
+.project-card .content h4 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-light); /* título en blanco */
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+/* Línea decorativa azul debajo del título de tarjeta */
+.project-card .content h4::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: var(--accent);
+  margin-top: 0.3rem;
+  border-radius: 2px;
+}
+
+.project-card .content p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .category-title {
+    font-size: 1.5rem;
+  }
+
+  .project-card .content h4 {
+    font-size: 1.2rem;
+  }
+}
+
+
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .project-card:hover {
+    transform: scale(1.2);
+  }
+}
+
+@media (max-width: 768px) {
+  .project-card:hover {
+    transform: scale(1.1);
+  }
+
+  section#projects h2 {
+    font-size: 2.25rem;
+  }
+
+  .project-card h3 {
+    font-size: 1.25rem;
+  }
+
+  .project-card p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-card:hover {
+    transform: scale(1.05);
+  }
+
+  section#projects h2 {
+    font-size: 1.75rem;
+  }
+
+  .project-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .project-card p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Animaciones extra */
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 0 rgba(59, 130, 246, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(59, 130, 246, 0.4);
+  }
+}
+
+.project-card:hover {
+  animation: glow 1.5s infinite;
+}
+
+/* Detalles visuales */
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: linear-gradient(45deg, var(--accent), var(--accent2));
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.4s ease;
+  border-radius: var(--radius);
+}
+
+.project-card:hover::before {
+  opacity: 0.2;
+}
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent2);
+}
+
+/* Animación de entrada */
+.project-card {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeInCard 0.8s ease-out forwards;
+}
+
+@keyframes fadeInCard {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Más efectos visuales */
+.project-card:hover .content {
+  opacity: 1;
+}
+
+.project-card .content h3,
+.project-card .content p,
+.project-card .content a {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.project-card:hover .content h3 {
+  transform: translateY(-2px);
+  color: var(--accent);
+}
+
+.project-card:hover .content p {
+  transform: translateY(-1px);
+}
+
+.project-card:hover .content a {
+  transform: translateX(6px);
+  color: var(--accent2);
+}
+
+/* Fondo dinámico */
+section#projects {
+  background: radial-gradient(circle at top left, #1f1f1f, #121212);
+}
+
+/* Separadores */
+.projects-grid::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--accent), transparent);
+  opacity: 0.1;
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+/* Más profundidad */
+.project-card:hover {
+  filter: brightness(1.1) contrast(1.2);
+}
+
+/* Animación de rebote */
+.project-card:hover {
+  animation: bounce 0.6s;
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1.4) translateY(0);
+  }
+  50% {
+    transform: scale(1.45) translateY(-10px);
+  }
+  100% {
+    transform: scale(1.4) translateY(0);
+  }
+}

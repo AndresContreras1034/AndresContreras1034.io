@@ -1,0 +1,238 @@
+/* ========================
+   Navbar.css - Ultra Boosted Final
+======================== */
+
+/* Navbar principal */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  z-index: 100;
+  backdrop-filter: blur(14px);
+  animation: fadeInNavbar 0.8s ease-out forwards;
+  opacity: 0;
+  transition: transform 0.4s ease, background 0.4s ease;
+}
+
+nav.hide {
+  transform: translateY(-100%);
+}
+
+/* Contenedor interno */
+nav > div {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Logo */
+nav .logo {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: fadeInLogo 1s ease-out forwards;
+  opacity: 0;
+  transition: color 0.3s ease;
+}
+
+nav .logo:hover {
+  color: #3b82f6;
+  text-shadow: 0 0 8px #3b82f6;
+}
+
+/* Menú de escritorio */
+nav ul.desktop-menu {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  animation: fadeInMenu 1s ease-out forwards;
+  opacity: 0;
+}
+
+nav ul.desktop-menu li a {
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+  position: relative;
+  padding: 0.5rem 0;
+  transition: all 0.3s ease;
+}
+
+nav ul.desktop-menu li a::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(to right, #3b82f6, #6366f1);
+  box-shadow: 0 0 6px #3b82f6;
+  transition: width 0.3s ease;
+}
+
+nav ul.desktop-menu li a:hover,
+nav ul.desktop-menu li a.active {
+  color: #3b82f6;
+  transform: scale(1.05);
+  text-shadow: 0 0 6px #3b82f6;
+}
+
+nav ul.desktop-menu li a:hover::after,
+nav ul.desktop-menu li a.active::after {
+  width: 100%;
+}
+
+/* Botón hamburguesa */
+button.menu-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.3rem;
+  padding: 0.5rem;
+  z-index: 101;
+  transition: all 0.3s ease;
+}
+
+button.menu-toggle span {
+  display: block;
+  width: 1.5rem;
+  height: 2px;
+  background-color: #ffffff;
+  transition: all 0.4s ease;
+}
+
+/* Animación a X */
+button.menu-toggle.open span:nth-child(1) {
+  transform: rotate(45deg) translateY(6px);
+}
+
+button.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+button.menu-toggle.open span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-6px);
+}
+
+/* Menú móvil */
+nav ul.mobile-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+  background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  list-style: none;
+  border-top: 1px solid #333;
+  animation: fadeInMobileMenu 0.5s ease-out forwards;
+}
+
+nav ul.mobile-menu li a {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav ul.mobile-menu li a:hover,
+nav ul.mobile-menu li a.active {
+  color: #3b82f6;
+  transform: scale(1.05);
+  text-shadow: 0 0 6px #3b82f6;
+}
+
+/* Animaciones */
+@keyframes fadeInNavbar {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLogo {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInMenu {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInMobileMenu {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive optimizado */
+@media (min-width: 768px) {
+  nav ul.mobile-menu {
+    display: none;
+  }
+
+  button.menu-toggle {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  nav ul.desktop-menu {
+    display: none;
+  }
+
+  nav > div {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav .logo {
+    margin-bottom: 1rem;
+  }
+
+  nav {
+    backdrop-filter: blur(6px);
+  }
+
+  nav ul.mobile-menu {
+    animation-duration: 0.4s;
+  }
+
+  nav ul.desktop-menu {
+    animation-duration: 0.4s;
+  }
+}
