@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "../styles/Navbar.css";
@@ -24,6 +25,7 @@ const Navbar = () => {
     { name: "About", href: "#about" },
     { name: "Skills", href: "#skills" },
     { name: "Projects", href: "#projects" },
+    { name: "certifications", href: "#certifications" }, 
     { name: "Contact", href: "#contact" },
   ];
 
@@ -38,7 +40,7 @@ const Navbar = () => {
           transition={{ duration: 0.6 }}
         >
           <span className="font-bold text-xl text-blue-500">
-            Doc. cdgo viejo 45%
+            Doc. cdgo viejo. 60%
           </span>
         </motion.div>
 

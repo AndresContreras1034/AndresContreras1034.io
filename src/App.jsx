@@ -6,6 +6,8 @@ import Skills from "./components/Skills.jsx";
 import Projects from "./components/Projects.jsx";
 import Contact from "./components/Contact.jsx";
 import Footer from "./components/Footer.jsx";
+import Certifications from "./components/Certifications"; 
+
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
         <Hero />
         <About />
         <Skills />
+          <Certifications />
         <Projects />
         <Contact />
       </main>

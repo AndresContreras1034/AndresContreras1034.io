@@ -106,16 +106,15 @@ const KirbyGame = () => {
         ctx.fillText(`Score: ${score}`, canvas.width - 150, 40);
       }
 
-      if (gameState === "gameover") {
-        ctx.fillStyle = "#fff";
-        ctx.font = "32px Arial";
-        ctx.textAlign = "center";
-        ctx.fillText(
-          "Game Over — Press R to Restart",
-          canvas.width / 2,
-          canvas.height / 2
-        );
-      }
+if (gameState === "gameover") {
+  ctx.save();
+
+  // Aquí podrías agregar efectos futuros si quieres
+  // Por ahora no mostramos nada
+
+  ctx.restore();
+}
+
 
       animationId = requestAnimationFrame(animate);
     };
