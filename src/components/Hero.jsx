@@ -69,7 +69,7 @@ const Hero = () => {
         transition={{ duration: 1, delay: 0.5 }}
         className="text-xl md:text-2xl text-gray-200 max-w-2xl z-10"
       >
-        Backend Developer & Data Analyst. (meti: SEO, CERTIFICACION, CSS, JSX,PLACEHOLDER, NAVBAR,about...)
+        Backend Developer & Data Analyst.
       </motion.p>
 
       {/* Kirby estático si el juego no está activo */}

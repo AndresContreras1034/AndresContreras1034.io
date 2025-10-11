@@ -40,7 +40,7 @@ const Navbar = () => {
           transition={{ duration: 0.6 }}
         >
           <span className="font-bold text-xl text-blue-500">
-            65%
+            
           </span>
         </motion.div>
 
