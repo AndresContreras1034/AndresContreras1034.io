@@ -3,21 +3,27 @@
 @tailwind utilities;
 
 /* ========================
-   Global Variables & Typography
+    Global Variables & Typography
 ======================== */
 :root {
   --font-sans: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
-  --color-bg: #2e2e2e; /* Fondo oscuro */
-  --color-text: #ffffff; /* Texto blanco */
+  --color-bg: #1a1a1a;
+  --color-bg-alt: #2e2e2e;
+  --color-text: #f9fafb;
+  --color-muted: #9ca3af;
   --color-accent: #3b82f6;
   --color-accent-hover: #6366f1;
   --color-btn-bg: #3b82f6;
   --color-btn-text: #ffffff;
+  --color-border: #3f3f46;
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.3);
+  --shadow-strong: 0 0 60px rgba(99, 102, 241, 0.6);
 }
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden; /* Evita scroll horizontal y barra azul */
+  overflow-x: hidden;
+  font-size: 16px;
 }
 
 body {
@@ -26,31 +32,107 @@ body {
   font-family: var(--font-sans);
   color: var(--color-text);
   background-color: var(--color-bg);
-  line-height: 1.5;
+  line-height: 1.6;
   font-weight: 400;
-  overflow-x: hidden; /* Refuerzo para scroll horizontal */
+  overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-/* Enlaces */
+/* ========================
+   Links
+======================== */
 a {
   font-weight: 500;
   color: var(--color-accent);
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 a:hover {
   color: var(--color-accent-hover);
+  transform: scale(1.05);
 }
 
-/* Títulos */
+/* ========================
+    Headings
+======================== */
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1.2;
   color: var(--color-text);
+  letter-spacing: 0.5px;
 }
 
-/* Quitar outline azul al hacer focus */
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+/* ========================
+   Focus & Accessibility
+======================== */
 *:focus {
   outline: none !important;
+}
+
+button:focus,
+a:focus {
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.5);
+  border-radius: 0.5rem;
+}
+
+/* ========================
+   Animations
+======================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* ========================
+  media (max-width: 768px) {
+  h1 { font-size: 2.25rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.75rem; }
+}
+
+/* ========================
+   Dark Mode Support
+======================== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #0f0f0f;
+    --color-text: #e5e7eb;
+    --color-muted: #6b7280;
+    --color-border: #2d2d2d;
+  }
 }
