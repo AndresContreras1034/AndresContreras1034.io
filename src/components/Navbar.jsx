@@ -55,7 +55,7 @@ const Navbar = () => {
             />
 
             {/* Saludo al costado */}
-            <span className="navbar-greeting">60%, lo termino antes de que termine el año</span>
+            <span className="navbar-greeting">Hola</span>
 
             {/* Desktop Menu */}
             <motion.ul
