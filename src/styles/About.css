@@ -1,0 +1,211 @@
+/* ========================
+   About.css - Boosted Style
+======================== */
+
+/* Marco Exterior Superior */
+.top-frame {
+  width: 100%;
+  height: 40px;
+  background-color: #111;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Contenedor principal */
+#about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, #1a1a1a, #0f0f0f);
+  border-radius: 0;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s ease;
+  opacity: 0;
+  transform: translateY(60px);
+  animation: slideUp 1.2s ease-out forwards;
+}
+
+/* Imagen principal */
+#about img {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+  border: 5px solid #ffffff;
+  animation: fadeInImage 1.5s ease-out forwards;
+  opacity: 0;
+}
+
+#about img:hover {
+  transform: scale(1.2) rotate(5deg);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* Título */
+#about h2 {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  animation: fadeInTitle 1.3s ease-out forwards;
+  opacity: 0;
+}
+
+#about h2::after {
+  content: '';
+  display: block;
+  width: 120px;
+  height: 6px;
+  margin: 0.75rem auto 0;
+  border-radius: 4px;
+  background: linear-gradient(to right, #4DCFFF, #4A00B4);
+  animation: gradientMove 3s linear infinite;
+  background-size: 200% 100%;
+}
+
+/* Imagen secundaria */
+#about .pzlita {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border: 3px solid #ffffff;
+  animation: fadeInImage 1.5s ease-out forwards;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  right: -10px;
+}
+
+#about .pzlita:hover {
+  transform: scale(1.25) rotate(3deg);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Texto descriptivo */
+#about p {
+  font-size: 1.3rem;
+  color: #e5e7eb;
+  max-width: 850px;
+  margin-top: 1.5rem;
+  line-height: 1.9;
+  font-weight: 500;
+  text-align: center;
+  animation: fadeInText 1.6s ease-out forwards;
+  opacity: 0;
+}
+
+/* Redes sociales */
+.about-socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.about-socials img {
+  width: 90px !important;
+  height: 90px !important;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.about-socials img:hover {
+  transform: scale(1.2) rotate(5deg);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.4);
+}
+
+/* Responsivo */
+@media (min-width: 768px) {
+  #about {
+    flex-direction: row;
+    gap: 4rem;
+    text-align: center;
+  }
+
+  #about img {
+    width: 280px;
+    height: 280px;
+  }
+
+  #about h2 {
+    font-size: 4rem;
+  }
+
+  #about p {
+    font-size: 1.4rem;
+  }
+
+  #about .pzlita {
+    width: 110px;
+    height: 110px;
+  }
+
+  .about-socials img {
+    width: 110px !important;
+    height: 110px !important;
+  }
+}
+
+/* Animaciones */
+@keyframes fadeInTitle {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInText {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInImage {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Modo oscuro */
+@media (prefers-color-scheme: dark) {
+  #about {
+    background-color: #1a1a1a;
+    box-shadow: 0 30px 80px rgba(255, 255, 255, 0.05);
+  }
+
+  #about h2,
+  #about p {
+    color: #f3f4f6;
+  }
+
+  #about img {
+    border-color: #1a1a1a;
+  }
+}

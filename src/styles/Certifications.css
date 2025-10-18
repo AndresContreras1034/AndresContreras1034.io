@@ -1,0 +1,157 @@
+/* ========================
+   Certifications.css - Boosteado
+======================== */
+
+section#certifications {
+  width: 100%;
+  background: linear-gradient(135deg, #1f1f1f, #0f0f0f);
+  padding: 6rem 2rem;
+  text-align: center;
+  animation: fadeInSection 1.2s ease-out forwards;
+  opacity: 0;
+  overflow: visible;
+  position: relative;
+  z-index: 1;
+}
+
+section#certifications::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(99,102,241,0.3), transparent);
+  z-index: 0;
+  animation: pulseGlow 4s infinite ease-in-out;
+}
+
+/* Título */
+section#certifications h2 {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 3rem;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  animation: fadeInTitle 1s ease-out forwards;
+  opacity: 0;
+  position: relative;
+  z-index: 2;
+}
+
+section#certifications h2::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 5px;
+  background: linear-gradient(to right, #3b82f6, #6366f1);
+  margin: 1rem auto 0;
+  border-radius: 3px;
+}
+
+/* Grid */
+.cert-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 2.5rem;
+  justify-content: center;
+  animation: fadeInGrid 1.5s ease-out forwards;
+  opacity: 0;
+  z-index: 2;
+}
+
+/* Tarjetas */
+.cert-card {
+  position: relative;
+  padding: 2rem;
+  border-radius: 1.25rem;
+  background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+  overflow: hidden;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.cert-card:hover {
+  transform: scale(1.08) rotateX(3deg);
+  box-shadow: 0 0 80px rgba(99, 102, 241, 0.7);
+  z-index: 10;
+}
+
+.cert-card.active {
+  transform: scale(1.2) rotateX(5deg);
+  box-shadow: 0 0 100px rgba(99, 102, 241, 0.9);
+  z-index: 20;
+}
+
+/* Texto */
+.cert-card h3 {
+  color: #ffffff;
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+}
+
+.cert-card p {
+  color: #d4d4d4;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.cert-card span {
+  color: #a1a1aa;
+  font-size: 0.9rem;
+}
+
+/* Tooltip */
+.cert-card .tooltip {
+  display: none;
+  margin-top: 1rem;
+  color: #e5e5e5;
+  font-size: 1rem;
+  line-height: 1.6;
+  padding: 0.75rem 1.25rem;
+  background-color: rgba(40, 40, 40, 0.95);
+  border-radius: 0.75rem;
+  max-width: 240px;
+  text-align: center;
+  animation: fadeInTooltip 0.3s ease forwards;
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+}
+
+.cert-card:hover .tooltip,
+.cert-card.active .tooltip {
+  display: block;
+  max-width: 100%;
+}
+
+/* Animaciones */
+@keyframes fadeInTooltip {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInSection {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInTitle {
+  0% { opacity: 0; transform: scale(0.9) translateY(-40px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes fadeInGrid {
+  0% { opacity: 0; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.2); }
+}
