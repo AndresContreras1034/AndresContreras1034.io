@@ -2,7 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 
 import profilePic from "../assets/profile.jpg";
-import Pzlita from "../assets/pzlita.png"; // tu logo o mini avatar
 import githubIcon from "../assets/github.png";
 import linkedinIcon from "../assets/linkedin.png";
 import twitterIcon from "../assets/x.png";
@@ -29,14 +28,7 @@ const About = () => {
           transition={{ duration: 1 }}
         >
           About Me
-          <motion.img
-            src={Pzlita}
-            alt="Pzlita"
-            className="pzlita"
-            initial={{ opacity: 0, x: 5, y: -5 }}
-            whileInView={{ opacity: 1, x: 0, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          />
+
         </motion.h2>
 
         {/* Texto descriptivo */}
